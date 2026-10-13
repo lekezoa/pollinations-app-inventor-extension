@@ -1,0 +1,45 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="component_event" x="30" y="30">
+    <mutation component_type="Button" is_generic="false" instance_name="ButtonGenerate" event_name="Click"></mutation>
+    <field name="COMPONENT_SELECTOR">ButtonGenerate</field>
+    <statement name="DO">
+      <block type="component_method">
+        <mutation component_type="PollinationsAI" method_name="GenerateText" is_generic="false" instance_name="PollinationsAI1"></mutation>
+        <field name="COMPONENT_SELECTOR">PollinationsAI1</field>
+        <value name="ARG0">
+          <block type="component_set_get">
+            <mutation component_type="TextBox" set_or_get="get" property_name="Text" is_generic="false" instance_name="TextBoxPrompt"></mutation>
+            <field name="COMPONENT_SELECTOR">TextBoxPrompt</field>
+            <field name="PROP">Text</field>
+          </block>
+        </value>
+        <value name="ARG1">
+          <block type="text">
+            <field name="TEXT">openai/gpt-5.4-nano</field>
+          </block>
+        </value>
+        <value name="ARG2">
+          <block type="text">
+            <field name="TEXT"></field>
+          </block>
+        </value>
+      </block>
+    </statement>
+  </block>
+  <block type="component_event" x="30" y="220">
+    <mutation component_type="PollinationsAI" is_generic="false" instance_name="PollinationsAI1" event_name="TextGenerated"></mutation>
+    <field name="COMPONENT_SELECTOR">PollinationsAI1</field>
+    <statement name="DO">
+      <block type="component_set_get">
+        <mutation component_type="Label" set_or_get="set" property_name="Text" is_generic="false" instance_name="LabelResult"></mutation>
+        <field name="COMPONENT_SELECTOR">LabelResult</field>
+        <field name="PROP">Text</field>
+        <value name="VALUE">
+          <block type="lexical_variable_get">
+            <field name="VAR">text</field>
+          </block>
+        </value>
+      </block>
+    </statement>
+  </block>
+</xml>

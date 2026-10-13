@@ -1,0 +1,6 @@
+[
+  {
+    "type": "com.pollinations.ai.PollinationsAI",
+    "permissions": ["android.permission.INTERNET"]
+  }
+]

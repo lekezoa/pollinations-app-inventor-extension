@@ -1,0 +1,81 @@
+[
+  {
+    "type": "com.pollinations.ai.PollinationsAI",
+    "name": "PollinationsAI",
+    "external": "true",
+    "version": "1",
+    "categoryString": "EXTENSION",
+    "helpString": "Pollinations.ai integration extension for MIT App Inventor & Kodular. Generate text, images, and speech with BYOP support.",
+    "showOnPalette": "true",
+    "nonVisible": "true",
+    "iconName": "icon.png",
+    "properties": [
+      {
+        "name": "DefaultApiKey",
+        "editorType": "string",
+        "defaultValue": ""
+      },
+      {
+        "name": "DefaultTextModel",
+        "editorType": "string",
+        "defaultValue": "openai/gpt-5.4-nano"
+      },
+      {
+        "name": "DefaultImageModel",
+        "editorType": "string",
+        "defaultValue": "flux"
+      }
+    ],
+    "methods": [
+      {
+        "name": "GenerateText",
+        "description": "Generate text from a prompt using Pollinations AI.",
+        "params": [
+          { "name": "prompt", "type": "text" },
+          { "name": "model", "type": "text" },
+          { "name": "apiKey", "type": "text" }
+        ]
+      },
+      {
+        "name": "GetImageUrl",
+        "description": "Build a Pollinations image generation URL with custom dimensions and seed.",
+        "returnType": "text",
+        "params": [
+          { "name": "prompt", "type": "text" },
+          { "name": "model", "type": "text" },
+          { "name": "width", "type": "number" },
+          { "name": "height", "type": "number" },
+          { "name": "seed", "type": "number" },
+          { "name": "apiKey", "type": "text" }
+        ]
+      },
+      {
+        "name": "GetSpeechUrl",
+        "description": "Get a Text-to-Speech audio stream URL using Pollinations.",
+        "returnType": "text",
+        "params": [
+          { "name": "text", "type": "text" },
+          { "name": "voice", "type": "text" },
+          { "name": "apiKey", "type": "text" }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "TextGenerated",
+        "description": "Event fired when text generation completes successfully.",
+        "params": [
+          { "name": "text", "type": "text" }
+        ]
+      },
+      {
+        "name": "ErrorOccurred",
+        "description": "Event fired when an error occurs during an API call.",
+        "params": [
+          { "name": "functionName", "type": "text" },
+          { "name": "errorMessage", "type": "text" }
+        ]
+      }
+    ]
+  }
+]
